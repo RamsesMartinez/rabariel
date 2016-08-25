@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Product.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Http/Controllers/ProductController.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Http/Controllers/MainController.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/config/app.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/User.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/resources/views/cms/orders.blade.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Order.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Content.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Http/Controllers/CmsController.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Menu.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Http/Controllers/Controller.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Http/Requests/Signup.php</file>
+            <file>file:/C:/xampp/htdocs/rabariel/app/Http/Controllers/UserController.php</file>
+        </group>
+    </open-files>
+</project-private>
