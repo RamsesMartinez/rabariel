@@ -24,7 +24,7 @@ class ShopController extends MainController
     }
     
    public function products($cat_url){
-       Product::getProducts($cat_url, self::$data);
+       Product::getSortedProductsDes($cat_url, self::$data);
        return view('content.products', self::$data);
    }
    

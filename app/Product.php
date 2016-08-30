@@ -6,7 +6,8 @@ use Session;
 
 class Product extends Model {
 
-    static public function getProducts($cat_url, &$data) {
+    static public function getProducts($cat_url, &$data)
+    {
         
         $data['products'] = [];
         
@@ -20,6 +21,40 @@ class Product extends Model {
                     {
                 $data['products'] = $products->toArray();
                 
+            }
+        }
+    }
+
+    static public function getSortedProductsAsc($cat_url, &$data)
+    {
+        $data ['products'] = [];
+
+        if($category = Categorie::where('url', '=', $cat_url)->first()) {
+
+            $category = $category->toArray();
+            $data['title'] = $category['title'] . 'products';
+            $data['cat_url'] = $category['url'];
+
+            if ($products = Product::where('categorie_id',$category['id'])->orderBy('price','asc')->get())
+            {
+                $data['products'] = $products->toArray();
+            }
+        }
+    }
+
+    static public function getSortedProductsDes($cat_url, &$data)
+    {
+        $data ['products'] = [];
+
+        if($category = Categorie::where('url', '=', $cat_url)->first())
+        {
+            $category = $category->toArray();
+            $data['title'] = $category['title'] . 'products';
+            $data['cat_url'] = $category['url'];
+
+            if ($products = Product::where('categorie_id',$category['id'])->orderBy('price','des')->get())
+            {
+                $data['products'] = $products->toArray();
             }
         }
     }
@@ -48,7 +83,8 @@ class Product extends Model {
         
         
     }
-    static public function cartUpdate ($input){
+    static public function cartUpdate ($input)
+    {
         if(!empty($input['id']) && !empty($input['op'])){
             
             if($product = Cart::get($input['id'])){
@@ -69,7 +105,8 @@ class Product extends Model {
         }
     }
     
-    static public function addProduct($request){
+    static public function addProduct($request)
+    {
         
         $image_name = 'default.jpg';
         
@@ -90,7 +127,8 @@ class Product extends Model {
         Session::flash('sm', 'un nuevo producto fue agregado');
     }
     
-    static public function updateProduct($request, $id){
+    static public function updateProduct($request, $id)
+    {
         
         $image_name = '';
         
