@@ -1,4 +1,6 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -43,8 +45,6 @@ class CategoryController extends MainController
     
     public function edit($id)
     {
-        
-        
         self::$data['category'] = Categorie::find($id)->toArray();
         return view('cms.edit_category', self::$data);
     }
@@ -60,7 +60,7 @@ class CategoryController extends MainController
     public function destroy($id)
     {
         Categorie::destroy($id);
-       Session::flash('sm', 'La categoria fue eliminado');
-       return redirect('cms/categories');
+        Session::flash('sm', 'La categoria fue eliminado');
+        return redirect('cms/categories');
     }
 }

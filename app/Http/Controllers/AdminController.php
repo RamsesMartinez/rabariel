@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\UserRequest;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\MainController;
+use Illuminate\Http\Request;
 
+use Session;
 class AdminController extends MainController
 {
     function __construct(){
@@ -29,7 +31,6 @@ class AdminController extends MainController
      */
     public function create()
     {
-        self::$data['users'] = User::all()->toArray();
         return view('cms.add_user', self::$data);
     }
 
@@ -53,7 +54,8 @@ class AdminController extends MainController
      */
     public function show($id)
     {
-        //
+        self::$data['user_id'] = $id;
+        return view('cms.delete_user', self::$data);
     }
 
     /**
@@ -64,7 +66,8 @@ class AdminController extends MainController
      */
     public function edit($id)
     {
-        //
+        self::$data['user'] = User::find($id)->toArray();
+        return view('cms.edit_user', self::$data);
     }
 
     /**
@@ -74,10 +77,13 @@ class AdminController extends MainController
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        User::updateUser($request, $id);
+        return redirect('cms/users');
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -87,6 +93,8 @@ class AdminController extends MainController
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        Session::flash('sm', 'El usuario fue eliminado');
+        return redirect('cms/users');
     }
 }

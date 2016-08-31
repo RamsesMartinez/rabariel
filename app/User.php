@@ -64,5 +64,16 @@ class User extends Model{
         DB::insert($sql);
         Session::flash('sm', 'Usuario creado exitosamente, ya puedes entrar');
     }
-    
+
+    static public function updateUser($request, $id){
+
+        $user = User::find($id);
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+
+        $user->save();
+        Session::flash('sm', 'El usuario fue actualizado');
+
+    }
+
 }

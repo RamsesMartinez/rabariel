@@ -5,7 +5,7 @@
 <div class="row">
     
     <div class="col-md-6">
-        <h3>Aqui puedes editar una categoria - </h3>
+        <h3>Aqui puedes editar una categoria </h3>
         
         <form action="{{ url('cms/categories/' . $category['id']) }}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="PUT">
