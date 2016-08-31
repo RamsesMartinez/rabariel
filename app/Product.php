@@ -8,7 +8,8 @@ class Product extends Model {
 
     static public function getProducts($cat_url, &$data)
     {
-        
+
+
         $data['products'] = [];
         
         if ($category = Categorie::where('url', '=', $cat_url)->first()) {
@@ -16,11 +17,12 @@ class Product extends Model {
             $category = $category->toArray();
             $data['title'] = $category['title'] . ' products';
             $data['cat_url'] = $category['url'];
-            
+
+
             if ($products = Categorie::find($category['id'])->products)
-                    {
+            {
                 $data['products'] = $products->toArray();
-                
+
             }
         }
     }
@@ -44,6 +46,7 @@ class Product extends Model {
 
     static public function getSortedProductsDes($cat_url, &$data)
     {
+
         $data ['products'] = [];
 
         if($category = Categorie::where('url', '=', $cat_url)->first())
@@ -60,13 +63,13 @@ class Product extends Model {
     }
     
     static public function getItem($product_url, &$data){
-        
+
         $data['item'] = [];
-        
+
         if($item = Product::where('url', '=', $product_url)->first()){
             $data['item'] = $item->toArray();
             $data['title'] = $data['item']['title'];
-            
+
         }
     }
     

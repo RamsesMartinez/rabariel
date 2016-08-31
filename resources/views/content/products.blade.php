@@ -5,7 +5,22 @@
 <div class="row text-center">
     <div class="col-md-12" >
         <h2>{{ $title }}</h2>
-        
+        <div class="btn-group pull-right">
+            <form action="{{ url('shop/'.$cat_url ) }}" method="GET" class='navbar-form navbar-lef' role='search'>
+                <div class="form-group">
+                    <select title="sort" name="sort" class="form-control" value="hola">
+                        @if($_GET['sort'] == 'asc')
+                            <option value="des">Mayor precio</option>
+                            <option value="asc" selected>Menor precio</option>
+                        @else
+                            <option value="des">Mayor precio</option>
+                            <option value="asc">Menor precio</option>
+                        @endif
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-info">Ordenar</button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -28,6 +43,7 @@
     @else
     <div class="col-md-12">
         <p>No Products...</p>
+    </div>
     @endif
 </div>
 

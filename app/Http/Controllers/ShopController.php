@@ -22,13 +22,36 @@ class ShopController extends MainController
         self::$data['title'] = 'categories page';
         return view('content.categories', self::$data);
     }
-    
-   public function products($cat_url){
-       Product::getSortedProductsDes($cat_url, self::$data);
-       return view('content.products', self::$data);
-   }
-   
-   public function item($cat_url, $product_url) {
+
+    public function products($cat_url, Request $request){
+
+        //dd($request->get('sort'));
+
+        if($request->get('sort') == 'asc')
+        {
+            Product::getSortedProductsAsc($cat_url, self::$data);
+        }
+        elseif ($request->get('sort') == 'des')
+        {
+            Product::getSortedProductsDes($cat_url, self::$data);
+        }
+        else
+        {
+            Product::getProducts($cat_url, self::$data);
+        }
+
+        return view('content.products', self::$data);
+    }
+    public function sortProductsAsc($cat_url){
+        Product::getSortedProductsAsc($cat_url, self::$data);
+        return view('content.products', self::$data);
+    }
+    public function sortProductsDes($cat_url){
+        Product::getSortedProductsDes($cat_url, self::$data);
+        return view('content.products', self::$data);
+    }
+
+    public function item($cat_url, $product_url) {
        Product::getItem($product_url, self::$data);
        return view('content.item', self::$data);
    }

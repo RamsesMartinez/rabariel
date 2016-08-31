@@ -45,8 +45,6 @@ class ProductController extends MainController
     
     public function edit($id)
     {
-        
-        
         self::$data['product'] = Product::find($id)->toArray();
         Categorie::getCategoryOrdered(self::$data, self::$data['product']['categorie_id']);
         return view('cms.edit_product', self::$data);
