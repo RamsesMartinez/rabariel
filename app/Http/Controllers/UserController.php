@@ -16,8 +16,8 @@ class UserController extends MainController
 {
     function __construct(){
         parent::__construct();
-
         $this->middleware('userSigned', ['except' => ['getLogout', 'getEdit']]);
+        //$this->middleware('adminSigned');
     }
 
     public function index(){
