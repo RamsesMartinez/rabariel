@@ -8,7 +8,7 @@ class AdminSigned
    
     public function handle($request, Closure $next)
     {
-        if(!Session::has('is_admin')){
+        if(! Session::has('is_admin')){
             return redirect('user/signin');
         } else{
             return $next($request);

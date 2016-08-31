@@ -16,11 +16,12 @@ class UserController extends MainController
 {
     function __construct(){
         parent::__construct();
+
         $this->middleware('userSigned', ['except' => ['getLogout', 'getEdit']]);
     }
 
     public function index(){
-        return view('cms.menu', self::$data);
+        return view('cms.dashboard', self::$data);
     }
     
     public function getSignin(){

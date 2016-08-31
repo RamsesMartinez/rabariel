@@ -9,10 +9,11 @@ Route::get('/', 'PagesController@index');
 
 
 /* cms */
-Route::resource('cms/products', 'ProductController');
 Route::resource('cms/categories', 'CategoryController');
 Route::resource('cms/content', 'ContentController');
 Route::resource('cms/menu', 'MenuController');
+Route::resource('cms/products', 'ProductController');
+Route::resource('cms/users', 'UserController');
 Route::controller('cms', 'CmsController');
 
 

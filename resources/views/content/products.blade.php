@@ -9,9 +9,11 @@
             <form action="{{ url('shop/'.$cat_url ) }}" method="GET" class='navbar-form navbar-lef' role='search'>
                 <div class="form-group">
                     <select title="sort" name="sort" class="form-control" value="hola">
-                        @if($_GET['sort'] == 'asc')
-                            <option value="des">Mayor precio</option>
-                            <option value="asc" selected>Menor precio</option>
+                        @if($_GET)
+                            @if($_GET['sort'] == 'asc')
+                                <option value="des">Mayor precio</option>
+                                <option value="asc" selected>Menor precio</option>
+                            @endif
                         @else
                             <option value="des">Mayor precio</option>
                             <option value="asc">Menor precio</option>
