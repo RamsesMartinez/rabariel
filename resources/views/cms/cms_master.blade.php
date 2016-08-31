@@ -32,6 +32,7 @@
                            <li><a href="{{url('cms/categories')}}">Categories</a></li>
                            <li><a href="{{url('cms/products')}}">Products</a></li>
                            <li><a href="{{url('cms/orders')}}">Orders</a></li>
+                           <li><a href="{{url('cms/users')}}">Users</a></li>
                            <li><a href="{{url('')}}">Volver al sitio</a></li>
                            <li><a href="{{url('user/logout')}}">Log Out</a></li>
                        </ul>
