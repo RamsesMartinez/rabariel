@@ -20,7 +20,7 @@ class ProductController extends MainController
     public function index()
     {
         self::$data['products'] = Product::all()->toArray();
-       return view('cms.product', self::$data); 
+        return view('cms.product', self::$data);
     }
 
     public function create()

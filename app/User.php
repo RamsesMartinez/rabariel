@@ -7,7 +7,7 @@ use Hash;
 
 class User extends Model{
     
-    static public function profiles()
+    public function profiles()
     {
         return $this->hasMany('Profile');
     }
@@ -36,9 +36,9 @@ class User extends Model{
         }
         
         return $valid;
-        
+
     }
-    
+
     static public function saveUser($request){
         $user = new self();
         $user->name = $request['name'];
@@ -51,7 +51,18 @@ class User extends Model{
         DB::insert($sql);
         Session::flash('sm', 'Tu cuenta fue creada exitosamente, ya puedes entrar');
     }
-    
-   
+
+    static public function createUser($request){
+        $user = new self();
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->password = bcrypt($request['password']);
+        $user->save();
+        $user->id;
+        $new_id = $user->id;
+        $sql = "INSERT INTO users_role VALUES($new_id, 4)";
+        DB::insert($sql);
+        Session::flash('sm', 'Usuario creado exitosamente, ya puedes entrar');
+    }
     
 }

@@ -4,6 +4,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\Http\Requests\UserRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\MainController;
 use App\Http\Requests\Signin;
@@ -17,7 +18,6 @@ class UserController extends MainController
     function __construct(){
         parent::__construct();
         $this->middleware('userSigned', ['except' => ['getLogout', 'getEdit']]);
-        //$this->middleware('adminSigned');
     }
 
     public function index(){

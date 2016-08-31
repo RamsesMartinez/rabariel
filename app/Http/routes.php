@@ -13,7 +13,7 @@ Route::resource('cms/categories', 'CategoryController');
 Route::resource('cms/content', 'ContentController');
 Route::resource('cms/menu', 'MenuController');
 Route::resource('cms/products', 'ProductController');
-Route::resource('cms/users', 'UserController');
+Route::resource('cms/users', 'AdminController');
 Route::controller('cms', 'CmsController');
 
 
