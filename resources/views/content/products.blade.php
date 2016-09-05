@@ -13,6 +13,9 @@
                             @if($_GET['sort'] == 'asc')
                                 <option value="des">Mayor precio</option>
                                 <option value="asc" selected>Menor precio</option>
+                            @else
+                                <option value="des" selected>Mayor precio</option>
+                                <option value="asc">Menor precio</option>
                             @endif
                         @else
                             <option value="des">Mayor precio</option>
